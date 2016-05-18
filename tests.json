@@ -60,6 +60,11 @@
       "patch": [ {"op": "add", "path": "/", "value":1 } ],
       "expected": {"":1} },
 
+    { "comment": "Add, /foo/ deep target (trailing slash)",
+      "doc": {"foo": {}},
+      "patch": [ {"op": "add", "path": "/foo/", "value":1 } ],
+      "expected": {"foo":{"": 1}} },
+
     { "comment": "Add composite value at top level",
       "doc": {"foo": 1},
       "patch": [{"op": "add", "path": "/bar", "value": [1, 2]}],
