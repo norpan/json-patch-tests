@@ -383,5 +383,16 @@
     { "comment": "unrecognized op should fail",
       "doc": {"foo": 1},
       "patch": [{"op": "spam", "path": "/foo", "value": 1}],
-      "error": "Unrecognized op 'spam'" }
+      "error": "Unrecognized op 'spam'" },
+
+    { "comment": "test with bad array number that has leading zeros",
+      "doc": ["foo", "bar"],
+      "patch": [{"op": "test", "path": "/00", "value": "foo"}],
+      "error": "test op should reject the array value, it has leading zeros" },
+
+    { "comment": "test with bad array number that has leading zeros",
+      "doc": ["foo", "bar"],
+      "patch": [{"op": "test", "path": "/01", "value": "bar"}],
+      "error": "test op should reject the array value, it has leading zeros" }
+
 ]
